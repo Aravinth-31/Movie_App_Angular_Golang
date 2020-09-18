@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="col-4">
+    <h2>Movies :</h2>
+  </div>
+  <div class="col-2 form-group">
+    <label for="location" style="color: black;font-weight: bold;">Date :</label><br>
+    <input type="date" id="date" style="padding: 10px;border-radius: 5px;background-color: #ffffffb0;border: 2px black;opacity: 0.8;" ngModel name="date" #date="ngModel" (change)="dateChange(date)">
+  </div>
+  <div class="col-2 form-group">
+    <label for="location" style="color: black;font-weight: bold;">Location :</label>
+    <select class="select-css" style="min-width: 40%;cursor: pointer;" ngModel name="location" #location="ngModel"
+      (change)="changeLocation(location)">
+      <option value="" selected>Select-A-Location</option>
+      <option *ngFor="let loc of locations" value={{loc.location}} style="text-transform: capitalize;">{{loc.location}}</option>
+    </select>
+  </div>
+  <div class="col-2 form-group">
+    <label for="Theatre" style="color: black;font-weight: bold;">Theatre :</label>
+    <select class="select-css" style="min-width: 40%;cursor: pointer;" ngModel name="theatre" #theatre="ngModel"
+      (change)="setTheatre(theatre)" required>
+      <option value="" selected>Select-A-Theatre</option>
+      <option *ngFor="let theatre of theatres" value="{{theatre.name}}">{{theatre.name}}</option>
+    </select>
+  </div>
+  <div class="col-2 form-group">
+    <label for="showTime" style="color: black;font-weight: bold;">Show Time :</label>
+    <select class="select-css" style="min-width: 40%;cursor: pointer;" ngModel name="showtime" #showtime="ngModel"
+      (change)="timeChange(showtime)">
+      <option selected value="">Select-A-ShowTime</option>
+      <option value="morning">Morning</option>
+      <option value="afternoon">AfterNoon</option>
+      <option value="evening">Evening</option>
+      <option value="night">Night</option>
+    </select>
+  </div>
+</div>
+<div id="movie-card-list" class="movie-list">
+  <div *ngIf="movies.length===0">
+    <h2 *ngIf="!flag">Loading...</h2>
+    <h2 *ngIf="flag">No Movies Available.!</h2>
+  </div>
+  <div *ngFor="let movie of movies">
+    <div class="movie-card" data-movie="Blade Runner"
+      style="background-image: url({{movie.image}});width: 100%;height: 100%;">
+      <div class="movie-card__overlay"></div>
+      <div class="movie-card__content">
+        <div class="movie-card__header">
+          <h1 class="movie-card__title">{{movie.name}}</h1>
+          <h4 class="movie-card__info"> {{movie.info}}</h4>
+        </div>
+        <p class="movie-card__desc">{{movie.desc}}</p>
+        <button class="btn btn-outline movie-card__button" type="button" (click)='top(movie)'>Book Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bg-modal" id="modal">
+  <div class="modal-content" >
+    <div (click)="close()" class="close">X</div>
+    <div class="selected row">
+      <div class="col-7">
+        <p><i>No of seats selected : {{noOfSeats}}</i></p>
+      </div>
+      <div class="col-5">
+        <p><i>Total Amount : {{noOfSeats*price}}</i></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6" style="display: flex;color: black;align-items: center;justify-content: center;"><div class="box"></div><h5 style="padding-top: 3%;"> Available To Reserve</h5></div>
+      <div class="col-6" style="display: flex;color: black;align-items: center;justify-content: center;"><div class="box selected"></div><h5 style="padding-top: 3%;"> Not Available To Reserve</h5></div>
+    </div>
+    <div id="form">
+      <button class="Reserve" (click)="Reserve()">Reserve</button>
+    </div>
+  </div>
+</div>

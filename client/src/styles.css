@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800");
+
+html {
+    box-sizing: border-box;
+  }
+  
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    background-color: #dce1e5;
+    font-family: "Montserrat", helvetica, arial, sans-serif;
+    font-size: 14px;
+    color: #cfd6e1;
+    line-height: 1.5;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+    

@@ -1,0 +1,18 @@
+paymentParams:
+  port: :3000
+  MID: guZEbt55224693629247
+  WEBSITE: WEBSTAGING
+  CHANNEL_ID: WEB
+  INDUSTRY_TYPE_ID : Retail
+  ORDER_ID : TEST_
+  CUST_ID : Customer001
+  CALLBACK_URL : http://localhost:3001/callback
+  KEY: ltARhiHzhjdbU0%K
+  TXNURL: https://securegw-stage.paytm.in/theia/processTransaction
+  TXNSTATUSURL : https://securegw-stage.paytm.in/merchant-status/getTxnStatus
+database:
+  host : "localhost"
+  port : "5432"
+  user : "postgres"
+  password : "Aravipost"
+  dbname : "movie"

@@ -1,0 +1,320 @@
+
+
+/*Select*/
+
+/* class applies to select element itself, not a wrapper element */
+.select-css {
+    display: block;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: 700;
+    color: #444;
+    line-height: 1.3;
+    padding: .6em 1.4em .5em .8em;
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid #aaa;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+    border-radius: .5em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    /* note: bg image below uses 2 urls. The first is an svg data uri for the arrow icon, and the second is the gradient. 
+        for the icon, if you want to change the color, be sure to use `%23` instead of `#`, since it's a url. You can also swap in a different svg icon or an external image reference
+        
+    */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+      linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+    background-repeat: no-repeat, repeat;
+    /* arrow icon position (1em from the right, 50% vertical) , then gradient position*/
+    background-position: right .7em top 50%, 0 0;
+    /* icon size, then gradient */
+    background-size: .65em auto, 100%;
+  }
+  /* Hide arrow icon in IE browsers */
+  .select-css::-ms-expand {
+    display: none;
+  }
+  
+  /* Support for rtl text, explicit support for Arabic and Hebrew */
+  *[dir="rtl"] .select-css, :root:lang(ar) .select-css, :root:lang(iw) .select-css {
+    background-position: left .7em top 50%, 0 0;
+    padding: .6em .8em .5em 1.4em;
+  }
+  
+  /* */
+  
+  .movie-list{
+    position: relative;
+  }
+  div div h2{
+    margin-left: 25%;
+    margin-top: 2rem;
+    color: black;
+    font-weight: bolder;
+  }
+  
+  .movie-list select{
+    background-color: #dce1e5;
+    width: 30%;
+  }
+  
+  .movie-list select option{
+    padding: 30px;
+    background-color: #dce1e5;
+  }
+  
+/*Movie Card */  
+  a {
+    text-decoration: none;
+  }
+  
+  button {
+    font-family: inherit;
+    border: 0;
+    cursor: pointer;
+  }
+  button:focus {
+    outline: 0;
+  }
+  
+  .movie-card {
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    min-height: 300px;
+    margin: 8vh auto;
+    border-radius: 8px;
+    box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);
+    position: relative;
+  }
+  @media screen and (max-width: 800px) {
+    .movie-card {
+      width: 95%;
+      max-width: 95%;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .movie-card {
+      background-position: 50% 0%;
+      background-size: cover;
+      height: 400px;
+    }
+  }
+  
+  .movie-card__overlay {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(42, 159, 255, 0.2)), color-stop(60%, #212120), to(#212120));
+    background: linear-gradient(to right, rgba(42, 159, 255, 0.2) 0%, #212120 60%, #212120 100%);
+    background-blend-mode: multiply;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+  @media screen and (max-width: 600px) {
+    .movie-card__overlay {
+      background: -webkit-gradient(linear, left top, left bottom, from(rgba(42, 159, 255, 0.2)), color-stop(60%, #212120), to(#212120));
+      background: linear-gradient(to bottom, rgba(42, 159, 255, 0.2) 0%, #212120 60%, #212120 100%);
+    }
+  }
+  .movie-card__share {
+    padding: 1em;
+    display: inline-block;
+    width: 100%;
+    max-width: 130px;
+  }
+  @media screen and (max-width: 600px) {
+    .movie-card__share {
+      display: block;
+      width: 100%;
+    }
+  }
+  .movie-card__icon {
+    color: #ffffff;
+    mix-blend-mode: lighten;
+    opacity: .4;
+    background: none;
+    padding: 0;
+  }
+  .movie-card__icon:hover {
+    opacity: 1;
+    mix-blend-mode: lighten;
+  }
+  .movie-card__icon:not(:first-of-type) {
+    margin-left: 5px;
+  }
+  .movie-card__icon i {
+    font-size: 1.2em;
+  }
+  .movie-card__content {
+    width: 100%;
+    max-width: 370px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: start;
+            align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    position: relative;
+    float: right;
+    padding-right: 1.2em;
+    padding-bottom: 1em;
+  }
+  @media screen and (max-width: 1000px) {
+    .movie-card__content {
+      width: 50%;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .movie-card__content {
+      margin-top: 4.2em;
+      width: 100%;
+      float: inherit;
+      max-width: 100%;
+      padding: 0 1em 1em;
+    }
+  }
+  .movie-card__header {
+    margin-bottom: 2em;
+  }
+  .movie-card__title {
+    color: #ffffff;
+    margin-bottom: .25em;
+    opacity: .75;
+  }
+  .movie-card__info {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: .8em;
+    color: #2a9fff;
+    line-height: 1;
+    margin: 0;
+    font-weight: 700;
+    opacity: .5;
+  }
+  .movie-card__desc {
+    font-weight: 300;
+    opacity: .84;
+    margin-bottom: 2em;
+  }
+  
+  h1, h2, h3 {
+    font-family: "Montserrat", helvetica, arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1;
+    font-weight: 400;
+  }
+  
+  .btn {
+    padding: .5rem 2rem;
+    background-color: rgba(255, 255, 255, 0.4);
+    color: white;
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    border: 3px solid #ffffff;
+  }
+  
+  .btn::before {
+    font-family: 'Material Icons';
+    content: '\e037';
+    vertical-align: middle;
+    font-size: 1.5em;
+    padding-right: .5em;
+  }
+  
+  .btn-outline:hover {
+    border-color: #2a9fff;
+    color: #2a9fff;
+    box-shadow: 0px 1px 8px 0px rgba(245, 199, 0, 0.2);
+  }
+  
+/*-----*/
+
+/*modal */
+.bg-modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  display: none;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  min-width: 500px;
+  width: 75%;
+  height: 650px;
+  background-color: white;
+  border-radius: 5%;
+  padding: 5%;
+  position: relative;
+}
+
+.modal-content input {
+  width: 50%;
+  margin: 20px auto;
+  display: block;
+}
+
+.modal-content input[type="checkbox"] {
+  height: 25px;
+  width: 25px;
+  border: 2px black;
+}
+.close {
+  color: black;
+  position: absolute;
+  top: 0;
+  right: 14px;
+  cursor: pointer;
+  margin-right: 1%;
+  margin-top: 3%;
+}
+
+.selected {
+  display: flex;
+  color: black;
+}
+.Reserve{
+  margin: auto;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10%;
+  font-weight: bolder;
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: cornflowerblue;
+  margin-top: 20px;
+}
+.box{
+  height: 25px;
+  width: 25px;
+  background-color: yellowgreen;
+  margin: 10px;
+  border-radius:20%;
+}
+.box:hover{
+  background-color: green;
+  width: 28px;
+  height: 28px;
+  margin: 8px;
+}
+.box.selected{
+  background-color: brown;
+}

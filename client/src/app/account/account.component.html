@@ -1,0 +1,58 @@
+<div>
+    <h2 style="margin-left: 10%;font-weight: bolder;">Welcome : <i>{{user}}</i></h2><br>
+    <div style="margin-left: 15%;">
+        <h3 style="color: cornflowerblue;">Tickets Reseved : </h3>
+        <div style="margin-left: 5%;" *ngIf="reserves.length===0">
+            <h4 style="color:orangered;" *ngIf="flag"> * No Reservations Available</h4>
+            <h3 style="color: rgb(12, 192, 12); " *ngIf="!flag"> Loading...</h3>
+        </div>
+        <div *ngIf="reserves.length">
+            <div class="center">
+                <div class="card" *ngFor='let movie of reserves'>
+                    <div class="additional">
+                        <div class="user-card" style="width: 100%;">
+                            <img src="{{movie.movieImg}}" style="height: 100%;opacity: 0.6;"/>
+                        </div>
+                        <div class="more-info">
+                            <h2>{{movie.movieName}}</h2>
+                            <div class="coords">
+                                <span>Date</span>
+                                <span>{{movie.date}}</span>
+                            </div>
+                            <div class="coords">
+                                <span>Show Time</span>
+                                <span>{{movie.showTime}}</span>
+                            </div>
+                            <div class="coords">
+                                <span>Theatre Name</span>
+                                <span>{{movie.theatreName}}</span>
+                            </div>
+                            <div class="coords">
+                                <span>Location</span>
+                                <span>{{movie.location}}</span>
+                            </div>
+                            <div class="coords">
+                                <span>No Of Seats</span>
+                                <span>{{movie.noOfTickets}}</span>
+                            </div>
+                            <div class="coords">
+                                <span>Price</span>
+                                <span>{{movie.price}}</span>
+                            </div>
+                            <div class="coords">
+                                <span>Total Amount</span>
+                                <span>{{movie.price*movie.noOfTickets}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="general">
+                        <h2>{{movie.movieName}}</h2>
+                        <p>{{movie.movieDesc}}</p>
+                        <span class="more">{{movie.movieInfo}}</span>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

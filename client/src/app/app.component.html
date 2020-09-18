@@ -1,0 +1,13 @@
+<nav>
+  <ul>
+    <li><p (click)="redirect()">Home</p></li>
+    <li>
+      <p *ngIf="islogged" (click)="redirectAccount()">Account</p>
+      <p *ngIf="!islogged" (click)="redirectLogin()">LogIn</p>
+    </li>
+    <li><p *ngIf="islogged" (click)="logOut()">Log Out</p></li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>
+
+<!-- <h1>hello</h1> -->
